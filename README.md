@@ -96,6 +96,13 @@ Este plugin pede para que coloque a ordenação que queremos no arquivo `.pretti
   "importOrderSortSpecifiers": true
 ```
 
+- [Ciar alias para os imports, evitando passar caminhos complexos - babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
+```
+yarn add -D babel-plugin-module-resolver
+```
+
+
+
 - [Atualização de pacotes por bot do Github - renovate](https://docs.renovatebot.com/)
 
 ## Instalações
