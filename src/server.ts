@@ -1,8 +1,6 @@
 import { env } from "@/env";
 import { app } from "@/app";
 
-const port = 3333;
-
 app.listen({ port: env.PORT, host: "0.0.0.0" }, function (err, address) {
   if (err) {
     app.log.error(err);
