@@ -6,8 +6,8 @@ GymPass style app.
 
 ### RFs (Requisitos funcionais)
 
-- [ ] deve ser possível se cadastrar;
-- [ ] deve ser possível se autenticar;
+- [x] deve ser possível se cadastrar;
+- [x] deve ser possível se autenticar;
 - [ ] deve ser possível obter o perfil de um usuário logado;
 - [ ] deve ser possível obter o número de check-ins realizados pelo usuário logado;
 - [ ] deve ser possível o usuário obter seu histórico de check-ins;
@@ -19,7 +19,7 @@ GymPass style app.
 
 ### RNs (Regras de negócio)
 
-- [ ] o usuário não deve poder se cadastrar com um e-mail duplicado;
+- [x] o usuário não deve poder se cadastrar com um e-mail duplicado;
 - [ ] o usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] o usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [ ] o check-in só pode ser validado até 20 minutos após criado;
@@ -68,7 +68,7 @@ yarn add -D eslint prettier eslint-config-prettier
 [Ordenar as importações - eslint-plugin-import](https://github.com/import-js/eslint-plugin-import/)
 
 ```
-yarn add -D eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript eslint-import-resolver-babel-module eslint-plugin-module-resolver
+yarn add -D eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript eslint-import-resolver-babel-module eslint-plugin-module-resolver @typescript-eslint/eslint-plugin
 ```
 
 ver configurações necessárias do `eslint-import-resolver-typescript` para funcionar correto com o path mapping
@@ -129,30 +129,78 @@ Será usado o arquivo `env/index.ts` para fazer as validações das variáveis d
 yarn add zod
 ```
 
-### Pacotes de exibição
 
-[Exibição de texto - fast-printf](https://www.npmjs.com/package/fast-printf)
 
-```bash
-yarn add fast-printf
-```
-
-[Animação de texto - chalk-animation](https://github.com/bokub/chalk-animation)
+- [ORM (Object Relational Mapper) - Query builder - Prisma](https://www.prisma.io/docs/getting-started/quickstart)
 
 ```bash
-yarn add chalk-animation
-yarn add -D @types/chalk-animation
+yarn add -D prisma
 ```
 
-[Barra de progresso - cli-progress](https://www.npmjs.com/package/cli-progress)
+>Inicia a configuração do prisma
+>
+>```bash
+>npx prisma init
+>```
+
+Após a configuração modelo de dados, rodar o comando a seguir para gerar os códigos para manipular os modelos no banco.
 
 ```bash
-yarn add cli-progress
-yarn add -D @types/cli-progress
+npx prisma generate
 ```
+-- Este comando também vai instalar o pacote `@prisma/client` que é o que vai ser usado para manipular os dados no banco.
+Instalaria o `prisma` se já não tivesse instalado.
 
-[Texto em cores - colors](https://github.com/Marak/colors.js)
+
+- [Banco de dados PostgreSQL em container Docker](https://hub.docker.com/r/bitnami/postgresql)
+
+Usaremos a imagem da Bitnami por causa de configurações de segurança pré definidas.
+Uso do `docker-compose` para facilitar a configuração do banco.
 
 ```bash
-yarn add colors
+docker-compose up -d
 ```
+
+Com o banco disponível, podemos rodar o comando a seguir para criar as tabelas no banco.
+
+```bash
+npx prisma migrate dev
+```
+
+
+- [Geração de hash de senha - bcryptjs](https://www.npmjs.com/package/bcryptjs)
+```bash
+yarn add bcryptjs
+yarn add -D @types/bcryptjs
+```
+
+
+
+### Testes
+
+- [Testes - vitest](https://github.com/vitest-dev/vitest)
+
+```bash
+yarn add -D vitest vite-tsconfig-paths @vitest/coverage-v8
+```
+
+O pacote `vite-tsconfig-paths` é para que o vitest entenda os path mapping do `tsconfig.json` e não dê erro de importação.
+O último pacote instalado é para que o vitest gere o relatório de cobertura de testes. Vai gerar um relatório em html na pasta `coverage`.
+```bash
+vitest run --coverage
+```
+
+Podemos visualizar os testes de forma mais visual podemos instalar o pacote `vitest-ui` e rodar o comando a seguir.
+
+```bash
+yarn add -D @vitest/ui
+```
+
+E adicionamos mais um script no `package.json` para rodar o comando a seguir.
+
+```json
+"test:ui": "vitest --ui [--api 9527]"
+```
+
+<p style="font-size: 10px">Obs.: coloquei a opção --api 9527 pois havia algum conflito com a porta padrão.</p>
+

@@ -1,6 +1,7 @@
 node_modules
 build
-
+.npmrc
+coverage
 
 # Environment variables
 .env
