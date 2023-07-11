@@ -2,7 +2,6 @@ import { expect, describe, it, beforeEach, vi, afterEach } from "vitest";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository";
 import { CheckInUseCase } from "./check-in";
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository";
-import { randomUUID } from "crypto";
 import { Decimal } from "@prisma/client/runtime/library";
 
 // Unit test
@@ -21,8 +20,8 @@ describe("CheckIns Use Case", () => {
       id: "gym-id",
       title: "Gym Name",
       description: "Gym Description",
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
+      latitude: new Decimal(1.215366),
+      longitude: new Decimal(32.267337),
       phone: "",
     });
 
@@ -86,5 +85,25 @@ describe("CheckIns Use Case", () => {
     });
 
     expect(checkIn.id).toEqual(expect.any(String));
+  });
+
+  it("should not be able to check in on distant gym", async () => {
+    gymsRepository.items.push({
+      id: "gym-02",
+      title: "Gym Name",
+      description: "Gym Description",
+      latitude: new Decimal(-22.713603),
+      longitude: new Decimal(-42.628454),
+      phone: "",
+    });
+
+    await expect(() =>
+      sut.execute({
+        gymId: "gym-02",
+        userId: "user-id",
+        userLatitude: 1.215366,
+        userLongitude: 32.267337,
+      }),
+    ).rejects.toBeInstanceOf(Error);
   });
 });
