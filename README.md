@@ -13,14 +13,14 @@ GymPass style app.
 - [ ] deve ser possível o usuário obter seu histórico de check-ins;
 - [ ] deve ser possível o usuário buscar academias próximas;
 - [ ] deve ser possível o usuário buscar academais pelo nome;
-- [ ] deve ser possível o usuário realizar check-in em uma academia;
+- [x] deve ser possível o usuário realizar check-in em uma academia;
 - [ ] deve ser possível validar o check-in de um usuário;
 - [ ] deve ser possível cadastrar uma academia;
 
 ### RNs (Regras de negócio)
 
 - [x] o usuário não deve poder se cadastrar com um e-mail duplicado;
-- [ ] o usuário não pode fazer 2 check-ins no mesmo dia;
+- [x] o usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] o usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [ ] o check-in só pode ser validado até 20 minutos após criado;
 - [ ] o check-in só pode ser validado por administradores;
@@ -175,6 +175,11 @@ yarn add -D @types/bcryptjs
 ```
 
 
+-[Validação de datas - dayjs](https://day.js.org/docs/en/installation/installation)
+
+```bash
+yarn add dayjs
+```
 
 ### Testes
 
