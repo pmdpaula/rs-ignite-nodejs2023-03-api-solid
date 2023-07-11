@@ -31,7 +31,7 @@ describe("Get User Profile Use Case", () => {
   });
 
   it("it should not be able to get user profile with wrong id", async () => {
-    expect(async () =>
+    await expect(() =>
       sut.execute({
         userId: "wrong_id",
       }),
