@@ -226,3 +226,11 @@ Este pacote nos permite exeutar scripts do package.json independente do sistema 
 yarn add -D npm-run-all
 ```
 
+
+
+- [Executar os testes sem precisar colocar a aplicação no ar - supertest](https://www.npmjs.com/package/supertest)
+
+```bash
+yarn add -D supertest @types/supertest
+```
+
