@@ -209,3 +209,10 @@ E adicionamos mais um script no `package.json` para rodar o comando a seguir.
 
 <p style="font-size: 10px">Obs.: coloquei a opção --api 9527 pois havia algum conflito com a porta padrão.</p>
 
+
+
+- [JWT JSON Web Token com Fastify - @fastify/jwt](https://github.com/fastify/fastify-jwt)
+
+```bash
+yarn add @fastify/jwt
+```
