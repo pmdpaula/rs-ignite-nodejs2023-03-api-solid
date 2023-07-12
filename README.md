@@ -216,3 +216,13 @@ E adicionamos mais um script no `package.json` para rodar o comando a seguir.
 ```bash
 yarn add @fastify/jwt
 ```
+
+
+
+- [A CLI tool to run multiple npm-scripts in parallel or sequential - npm-run-all](https://github.com/mysticatea/npm-run-all)
+Este pacote nos permite exeutar scripts do package.json independente do sistema operacional.
+
+```bash
+yarn add -D npm-run-all
+```
+
