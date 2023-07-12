@@ -14,7 +14,7 @@ GymPass style app.
 - [x] deve ser possível o usuário buscar academias próximas (até 10 km);
 - [x] deve ser possível o usuário buscar academais pelo nome;
 - [x] deve ser possível o usuário realizar check-in em uma academia;
-- [ ] deve ser possível validar o check-in de um usuário;
+- [x] deve ser possível validar o check-in de um usuário;
 - [x] deve ser possível cadastrar uma academia;
 
 ### RNs (Regras de negócio)
