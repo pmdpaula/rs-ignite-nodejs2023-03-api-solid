@@ -9,7 +9,7 @@ export interface CheckInsRepository {
 
   countByUserId(userId: string): Promise<number>;
 
-  findById(checkInId: string): Promise<CheckIn | null>;
+  findById(id: string): Promise<CheckIn | null>;
 
   save(checkIn: CheckIn): Promise<CheckIn>;
 }
