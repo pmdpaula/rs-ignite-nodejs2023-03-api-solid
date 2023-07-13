@@ -3,7 +3,7 @@ import request from "supertest";
 import { app } from "@/app";
 import { createAndAuthenticateUser } from "@/utils/create-and-authenticate-user";
 
-describe("Search Gyms (e2e)", () => {
+describe("Nearby Gyms (e2e)", () => {
   beforeAll(async () => {
     await app.ready();
   });
@@ -12,7 +12,7 @@ describe("Search Gyms (e2e)", () => {
     await app.close();
   });
 
-  it("should be able to search nearby gyms", async () => {
+  it("should be able to list nearby gyms", async () => {
     const { token } = await createAndAuthenticateUser(app);
 
     await request(app.server).post("/gyms").set("Authorization", `Bearer ${token}`).send({
