@@ -5,7 +5,7 @@ import { validate } from "./validate";
 import { history } from "./history";
 import { metric } from "./metrics";
 
-export const gymsRoutes = async (app: FastifyInstance) => {
+export const checkInsRoutes = async (app: FastifyInstance) => {
   app.addHook("onRequest", verifyJwt);
 
   app.get("/check-ins/history", history);

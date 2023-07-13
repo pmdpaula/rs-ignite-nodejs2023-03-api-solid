@@ -4,6 +4,7 @@ import { gymsRoutes } from "./http/controllers/gyms/routes";
 import { ZodError } from "zod";
 import { env } from "./env";
 import fastifyJwt from "@fastify/jwt";
+import { checkInsRoutes } from "./http/controllers/checkins/routes";
 
 export const app = fastify({ logger: true });
 
@@ -13,6 +14,7 @@ app.register(fastifyJwt, {
 
 app.register(usersRoutes);
 app.register(gymsRoutes);
+app.register(checkInsRoutes);
 
 app.setErrorHandler((error, _, reply) => {
   // acima, quando não usamos o request, podemos usar o underline para ignorar o parâmetro
