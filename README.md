@@ -234,3 +234,10 @@ yarn add -D npm-run-all
 yarn add -D supertest @types/supertest
 ```
 
+
+
+- [Trabalhar com cookies - fastify-cookie](https://github.com/fastify/fastify-cookie)
+
+```bash
+yarn add @fastify/cookie
+```
