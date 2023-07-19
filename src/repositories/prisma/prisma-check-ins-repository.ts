@@ -1,7 +1,7 @@
-import { CheckIn, Prisma } from "@prisma/client";
-import { CheckInsRepository } from "../check-ins-repository";
-import { prisma } from "@/lib/prisma";
-import dayjs from "dayjs";
+import { CheckIn, Prisma } from '@prisma/client';
+import { CheckInsRepository } from '../check-ins-repository';
+import { prisma } from '@/lib/prisma';
+import dayjs from 'dayjs';
 
 export class PrismaCheckInsRepository implements CheckInsRepository {
   async create(data: Prisma.CheckInUncheckedCreateInput) {
@@ -24,8 +24,8 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
   }
 
   async findByUserIdOnDate(userId: string, date: Date) {
-    const startOfTheDay = dayjs(date).startOf("date");
-    const endOfTheDay = dayjs(date).endOf("date");
+    const startOfTheDay = dayjs(date).startOf('date');
+    const endOfTheDay = dayjs(date).endOf('date');
 
     const checkIn = await prisma.checkIn.findFirst({
       where: {

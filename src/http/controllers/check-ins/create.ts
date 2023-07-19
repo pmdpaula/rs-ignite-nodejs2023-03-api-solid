@@ -1,6 +1,6 @@
-import { makeCheckInUseCase } from "@/use-cases/factories/make-check-in-use-case";
-import { FastifyRequest, FastifyReply } from "fastify";
-import { z } from "zod";
+import { makeCheckInUseCase } from '@/use-cases/factories/make-check-in-use-case';
+import { FastifyRequest, FastifyReply } from 'fastify';
+import { z } from 'zod';
 
 export const create = async (request: FastifyRequest, reply: FastifyReply) => {
   const createCheckInParamsSchema = z.object({

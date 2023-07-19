@@ -1,6 +1,6 @@
-import { Gym, Prisma } from "@prisma/client";
-import { FindManyNearbyParams, GymsRepository } from "../gyms-repository";
-import { prisma } from "@/lib/prisma";
+import { Gym, Prisma } from '@prisma/client';
+import { FindManyNearbyParams, GymsRepository } from '../gyms-repository';
+import { prisma } from '@/lib/prisma';
 
 export class PrismaGymsRepository implements GymsRepository {
   async create(data: Prisma.GymCreateInput) {
@@ -25,7 +25,7 @@ export class PrismaGymsRepository implements GymsRepository {
       where: {
         title: {
           contains: query,
-          mode: "insensitive",
+          mode: 'insensitive',
         },
       },
       skip: (page - 1) * 20,

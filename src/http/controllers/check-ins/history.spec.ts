@@ -1,10 +1,10 @@
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import request from "supertest";
-import { app } from "@/app";
-import { createAndAuthenticateUser } from "@/utils/create-and-authenticate-user";
-import { prisma } from "@/lib/prisma";
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import request from 'supertest';
+import { app } from '@/app';
+import { createAndAuthenticateUser } from '@/utils/create-and-authenticate-user';
+import { prisma } from '@/lib/prisma';
 
-describe("Check-In History (e2e)", () => {
+describe('Check-In History (e2e)', () => {
   beforeAll(async () => {
     await app.ready();
   });
@@ -13,14 +13,14 @@ describe("Check-In History (e2e)", () => {
     await app.close();
   });
 
-  it("should be able to list the history of check-ins", async () => {
+  it('should be able to list the history of check-ins', async () => {
     const { token } = await createAndAuthenticateUser(app);
 
     const user = await prisma.user.findFirstOrThrow();
 
     const gym = await prisma.gym.create({
       data: {
-        title: "Javascript Academy",
+        title: 'Javascript Academy',
         latitude: 1.215366,
         longitude: 32.267337,
       },
@@ -40,8 +40,8 @@ describe("Check-In History (e2e)", () => {
     });
 
     const response = await request(app.server)
-      .get("/check-ins/history")
-      .set("Authorization", `Bearer ${token}`)
+      .get('/check-ins/history')
+      .set('Authorization', `Bearer ${token}`)
       .send();
 
     expect(response.statusCode).toEqual(200);

@@ -1,6 +1,6 @@
-import { FastifyRequest, FastifyReply } from "fastify";
-import { z } from "zod";
-import { makeCreateGymUseCase } from "@/use-cases/factories/make-create-gym-use-case";
+import { FastifyRequest, FastifyReply } from 'fastify';
+import { z } from 'zod';
+import { makeCreateGymUseCase } from '@/use-cases/factories/make-create-gym-use-case';
 
 export const create = async (request: FastifyRequest, reply: FastifyReply) => {
   const createGymBodySchema = z.object({

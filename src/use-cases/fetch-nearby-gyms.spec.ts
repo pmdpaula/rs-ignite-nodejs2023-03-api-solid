@@ -1,31 +1,31 @@
-import { expect, describe, it, beforeEach } from "vitest";
-import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository";
-import { FetchNearbyGymsUseCase } from "./fetch-nearby-gyms";
+import { expect, describe, it, beforeEach } from 'vitest';
+import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository';
+import { FetchNearbyGymsUseCase } from './fetch-nearby-gyms';
 
 // Unit test
 
 let gymsRepository: InMemoryGymsRepository;
 let sut: FetchNearbyGymsUseCase;
 
-describe("Fetch Nearby Gym Use Case", () => {
+describe('Fetch Nearby Gym Use Case', () => {
   beforeEach(async () => {
     gymsRepository = new InMemoryGymsRepository();
     sut = new FetchNearbyGymsUseCase(gymsRepository);
   });
 
-  it("should be able to fetch nearby gyms", async () => {
+  it('should be able to fetch nearby gyms', async () => {
     await gymsRepository.create({
-      title: "Academia Perto",
-      description: "Academia de musculação",
-      phone: "123456789",
+      title: 'Academia Perto',
+      description: 'Academia de musculação',
+      phone: '123456789',
       latitude: 1.215366,
       longitude: 32.267337,
     });
 
     await gymsRepository.create({
-      title: "Academia Longe",
-      description: "Academia de musculação",
-      phone: "123456789",
+      title: 'Academia Longe',
+      description: 'Academia de musculação',
+      phone: '123456789',
       latitude: -22.713603,
       longitude: -42.628454,
     });

@@ -1,7 +1,7 @@
-import { FastifyRequest, FastifyReply } from "fastify";
-import { z } from "zod";
-import { InvalidCredentialsError } from "@/use-cases/errors/invalid-credentials-error";
-import { makeAuthenticateUseCase } from "@/use-cases/factories/make-authenticate-use-case";
+import { FastifyRequest, FastifyReply } from 'fastify';
+import { z } from 'zod';
+import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error';
+import { makeAuthenticateUseCase } from '@/use-cases/factories/make-authenticate-use-case';
 
 export const authenticate = async (request: FastifyRequest, reply: FastifyReply) => {
   const authenticateBodySchema = z.object({
@@ -33,15 +33,15 @@ export const authenticate = async (request: FastifyRequest, reply: FastifyReply)
       {
         sign: {
           sub: user.id,
-          expiresIn: "7d",
+          expiresIn: '7d',
         },
       },
     );
 
     return reply
       .status(200)
-      .setCookie("refreshToken", refreshToken, {
-        path: "/",
+      .setCookie('refreshToken', refreshToken, {
+        path: '/',
         secure: true,
         sameSite: true,
         httpOnly: true,
